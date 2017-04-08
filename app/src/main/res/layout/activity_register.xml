@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/registerlinearlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#273237">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FF4081"
+            android:text="Register" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:src="@drawable/tools" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/usersign"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户标识：" />
+
+            <TextView
+                android:id="@+id/txt_authorid"
+                style="@style/textStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RadioButton
+                    android:id="@+id/radioText"
+                    style="@style/textStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="文本密码"></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/radioNumber"
+                    style="@style/textStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="数字密码"></RadioButton>
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/isv_getpassword"
+                style="@style/textStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="获取密码" />
+
+            <Button
+                android:id="@+id/isv_register"
+                style="@style/textStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="注册" />
+
+            <Button
+                android:id="@+id/isv_stop_record"
+                style="@style/textStyle"
+                android:layout_width="0.1dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="停止录音" />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/isv_cancel"
+            style="@style/textStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="取消" />
+
+        <TextView
+            android:id="@+id/showPwd"
+            style="@style/textStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" />
+
+        <TextView
+            android:id="@+id/showMsg"
+            style="@style/textStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" />
+
+        <TextView
+            android:id="@+id/showRegFbk"
+            style="@style/textStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" />
+
+        <TextView
+            android:id="@+id/recordTime"
+            style="@style/textStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" />
+
+    </LinearLayout>
+</LinearLayout>

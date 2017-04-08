@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.iflytek.IntenligentCar.MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#273237">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ControlPanel"
+            android:textColor="#FF4081" />
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_margin="5dp"
+                android:src="@android:drawable/stat_sys_phone_call"
+                app:fabSize="mini" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/phones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_margin="5dp"
+                android:src="@android:drawable/sym_call_outgoing"
+                app:fabSize="mini" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_margin="5dp"
+                android:src="@android:drawable/stat_sys_phone_call"
+                app:fabSize="mini" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/addfunction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_margin="5dp"
+                android:src="@android:drawable/ic_input_add"
+                app:fabSize="mini" />
+        </android.support.design.widget.CoordinatorLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical">
+
+            <android.support.design.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/loadvideo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|bottom"
+                    android:layout_margin="20dp"
+                    android:src="@android:drawable/ic_media_play"
+                    app:fabSize="mini" />
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/stopvideo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|bottom"
+                    android:layout_margin="20dp"
+                    android:src="@android:drawable/ic_media_pause"
+                    android:visibility="invisible"
+                    app:fabSize="mini" />
+
+                <WebView
+                    android:id="@+id/video_display"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none" />
+            </android.support.design.widget.CoordinatorLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:background="#273237"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/hand_control_panel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#273237"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_up"
+                    style="@style/textStyle"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/btn_left"
+                    android:layout_toEndOf="@+id/btn_left"
+                    android:background="@drawable/circle"
+                    android:text="上" />
+
+                <Button
+                    android:id="@+id/btn_down"
+                    style="@style/textStyle"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btn_left"
+                    android:layout_toEndOf="@+id/btn_left"
+                    android:background="@drawable/circle"
+                    android:text="下" />
+
+                <Button
+                    android:id="@+id/btn_left"
+                    style="@style/textStyle"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/circle"
+                    android:text="左" />
+
+                <Button
+                    android:id="@+id/btn_right"
+                    style="@style/textStyle"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btn_up"
+                    android:layout_toEndOf="@+id/btn_down"
+                    android:background="@drawable/circle"
+                    android:text="右" />
+
+                <Button
+                    android:id="@+id/btn_scacleL"
+                    style="@style/textStyle"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/btn_turnl"
+                    android:layout_alignTop="@+id/btn_scacleS"
+                    android:background="@drawable/circle"
+                    android:text="伸展" />
+
+                <Button
+                    android:id="@+id/btn_scacleS"
+                    style="@style/textStyle"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/btn_right"
+                    android:layout_toEndOf="@+id/btn_turnl"
+                    android:background="@drawable/circle"
+                    android:text="收缩" />
+
+                <Button
+                    android:id="@+id/btn_turnl"
+                    style="@style/textStyle"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/btn_turnr"
+                    android:layout_marginEnd="37dp"
+                    android:layout_toStartOf="@+id/btn_turnr"
+                    android:background="@drawable/circle"
+                    android:text="左转" />
+
+                <Button
+                    android:id="@+id/btn_turnr"
+                    style="@style/textStyle"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/btn_right"
+                    android:layout_marginEnd="40dp"
+                    android:background="@drawable/circle"
+                    android:text="右转" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/auto_control_panel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#273237"
+                android:orientation="vertical"
+                android:visibility="invisible">
+
+                <ImageView
+                    android:id="@+id/position_circle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/circle" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/voice_control_panel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#273237"
+                android:orientation="vertical"
+                android:visibility="invisible">
+
+                <Button
+                    android:id="@+id/btn_voiceControl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="VoiceControl" />
+
+                <Button
+                    android:id="@+id/btn_voiceChat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:text="VoiceChat" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

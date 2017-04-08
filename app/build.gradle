@@ -1,0 +1,29 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        applicationId "com.iflytek.isvdemo"
+        minSdkVersion 19
+        targetSdkVersion 25
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile files('libs/Msc.jar')
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.charonchui.vitamio:vitamio:4.2.2'
+    compile 'com.android.support:design:26.0.0-alpha1'
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 请替换成在语音云官网申请的appid -->
+    <string name="app_id">57c3f4ef</string>
+    <string name="app_name">IntenligentCar</string>
+    <string name="text_begin">start Listening</string>
+    <string
+        name="tts_toast_format"
+        formatted="false">缓冲进度为%d%%，播放进度为%d%%</string>
+</resources>
