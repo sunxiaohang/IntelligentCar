@@ -176,7 +176,7 @@ public class MainActivity extends Activity implements SensorEventListener {
             }
         });
         /***
-         * 前进setOnTouchListener事件监听
+         * 前进setOnTouchListener事件监听 (1,5)
          */
         btn_up.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -195,7 +195,7 @@ public class MainActivity extends Activity implements SensorEventListener {
             }
         });
         /***
-         * 后退setOnTouchListener监听
+         * 后退setOnTouchListener监听(2,6)
          */
         btn_down.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -214,7 +214,7 @@ public class MainActivity extends Activity implements SensorEventListener {
             }
         });
         /***
-         * 舵机向左旋转setOnTouchListener监听
+         * 舵机向左旋转setOnTouchListener监听(3,7)
          */
         btn_left.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -233,7 +233,7 @@ public class MainActivity extends Activity implements SensorEventListener {
             }
         });
         /***
-         * 舵机向右旋转setOnTouchListener监听
+         * 舵机向右旋转setOnTouchListener监听(4,8)
          */
         btn_right.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -295,7 +295,13 @@ public class MainActivity extends Activity implements SensorEventListener {
         btn_voiceControl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if( null == mIat ){
+                    showTip( "创建对象失败，请确认 libmsc.so 放置正确，\n 且有调用 createUtility 进行初始化" );
+                    return;
+                }
+                mResultText.delete(0,mResultText.length());
+                mResultText.append("control");
+                getVoiceContent();
             }
         });
         /***
@@ -311,8 +317,6 @@ public class MainActivity extends Activity implements SensorEventListener {
                 mResultText.delete(0,mResultText.length());
 //                mIat.stopListening();
                 getVoiceContent();
-//                System.out.println(result+"***************");
-
             }
         });
 
@@ -645,7 +649,11 @@ public class MainActivity extends Activity implements SensorEventListener {
             mResultText.append(text);
             if(isLast) {
                 String result=mResultText.toString();
-                if(result!=null)requestMessage(result);
+                if(result!=null){
+                    if(!result.contains("control"))requestMessage(result);
+                    else resolveOrder(result);
+                    System.out.println("语音识别结果输出："+result);
+                }
             }
         }
 
@@ -660,6 +668,32 @@ public class MainActivity extends Activity implements SensorEventListener {
 
         }
     };
+    private void resolveOrder(String result) {
+        if(result.contains("前")){
+            SendControlCode sc=new SendControlCode(1);
+            sc.execute();
+        }else if(result.contains("后")){
+            SendControlCode sc=new SendControlCode(2);
+            sc.execute();
+        }else if(result.contains("左")){
+            SendControlCode sc=new SendControlCode(3);
+            sc.execute();
+        }else if(result.contains("右")){
+            SendControlCode sc=new SendControlCode(4);
+            sc.execute();
+        }else if(result.contains("停")){
+            SendControlCode sc=new SendControlCode(5);
+            SendControlCode sc2=new SendControlCode(6);
+            sc.execute();
+            sc2.execute();
+        }else if(result.contains("直")){
+            SendControlCode sc=new SendControlCode(7);
+            SendControlCode sc2=new SendControlCode(8);
+            sc.execute();
+            sc2.execute();
+        }
+
+    }
 
     /**
      * 听写UI监听器
@@ -677,7 +711,6 @@ public class MainActivity extends Activity implements SensorEventListener {
         public void onError(SpeechError error) {
             showTip(error.getPlainDescription(true));
         }
-
     };
 
     private void showTip(final String str)
@@ -709,7 +742,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         }
 
         // 设置语音前端点:静音超时时间，即用户多长时间不说话则当做超时处理
-        mIat.setParameter(SpeechConstant.VAD_BOS, "4000");
+        mIat.setParameter(SpeechConstant.VAD_BOS, "3000");
 
         // 设置语音后端点:后端点静音检测时间，即用户停止说话多长时间内即认为不再输入， 自动停止录音
         mIat.setParameter(SpeechConstant.VAD_EOS, "1000");

@@ -15,7 +15,6 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.Surface;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -47,6 +46,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /**
  * Created by m1320 on 2016/9/6.
+ * 登陆界面
  */
 public class LoginActivity extends Activity implements OnClickListener {
 	private static final String TAG = LoginActivity.class.getSimpleName();
@@ -122,7 +122,6 @@ public class LoginActivity extends Activity implements OnClickListener {
 		});
 		textInputLayout= (TextInputLayout) findViewById(R.id.usersign);
 		textInputLayout.setHint("请输入用户标识");
-
 
 		/***
 		 * 自动补全用户标识

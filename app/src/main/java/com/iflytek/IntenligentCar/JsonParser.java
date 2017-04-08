@@ -6,7 +6,7 @@ import org.json.JSONTokener;
 /**
  * Created by Dell on 2017/4/8.
  *
- * Json结果解析类
+ * Json结果解析类（Utils）
  */
 public class JsonParser {
 

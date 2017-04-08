@@ -10,6 +10,7 @@ import java.net.Socket;
 
 /**
  * Created by m1320 on 2016/9/6.
+ * 发送控制码类，AsyncTask，简化Socket通信过程，
  */
 public class SendControlCode extends AsyncTask {
     private int controlCode;
