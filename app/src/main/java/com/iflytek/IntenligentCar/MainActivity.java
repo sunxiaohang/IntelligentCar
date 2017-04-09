@@ -669,28 +669,20 @@ public class MainActivity extends Activity implements SensorEventListener {
         }
     };
     private void resolveOrder(String result) {
-        if(result.contains("前")){
-            SendControlCode sc=new SendControlCode(1);
-            sc.execute();
-        }else if(result.contains("后")){
-            SendControlCode sc=new SendControlCode(2);
-            sc.execute();
-        }else if(result.contains("左")){
-            SendControlCode sc=new SendControlCode(3);
-            sc.execute();
-        }else if(result.contains("右")){
-            SendControlCode sc=new SendControlCode(4);
-            sc.execute();
-        }else if(result.contains("停")){
-            SendControlCode sc=new SendControlCode(5);
-            SendControlCode sc2=new SendControlCode(6);
-            sc.execute();
-            sc2.execute();
-        }else if(result.contains("直")){
-            SendControlCode sc=new SendControlCode(7);
-            SendControlCode sc2=new SendControlCode(8);
-            sc.execute();
-            sc2.execute();
+        if(result.contains("前")||(result.contains("钱"))){
+            new SendControlCode(1).execute();
+        }if(result.contains("后")){
+            new SendControlCode(2).execute();
+        }if(result.contains("左")||result.contains("昨")||result.contains("做")||result.contains("抓")){
+            new SendControlCode(3).execute();
+        }if(result.contains("右")||result.contains("又")||result.contains("有")||result.contains("哟")){
+            new SendControlCode(4).execute();
+        }if(result.contains("停")){
+            new SendControlCode(5).execute();
+            new SendControlCode(6).execute();
+        }if(result.contains("直")||result.contains("只")||result.contains("执")){
+            new SendControlCode(7).execute();
+            new SendControlCode(8).execute();
         }
 
     }

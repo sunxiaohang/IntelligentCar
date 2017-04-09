@@ -18,12 +18,15 @@ public class SendControlCode extends AsyncTask {
 
     public SendControlCode(int _controlCode) {
         this.controlCode = _controlCode;
+        try {
+            socket = new Socket("192.168.1.88", 6789);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
     @Override
     protected Object doInBackground(Object[] objects) {
         try {
-            socket = new Socket("192.168.1.88", 6789);
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter out = new PrintWriter(socket.getOutputStream());
             out.println(controlCode);
