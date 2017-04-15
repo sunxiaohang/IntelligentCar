@@ -2,7 +2,7 @@
 <resources>
     <!-- 请替换成在语音云官网申请的appid -->
     <string name="app_id">57c3f4ef</string>
-    <string name="app_name">IntenligentCar</string>
+    <string name="app_name">IntelligentCar</string>
     <string name="text_begin">start Listening</string>
     <string
         name="tts_toast_format"
